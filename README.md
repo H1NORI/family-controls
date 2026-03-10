@@ -27,7 +27,9 @@ npx cap sync
 <docgen-index>
 
 * [`echo(...)`](#echo)
+* [`checkPermission()`](#checkpermission)
 * [`requestPermission()`](#requestpermission)
+* [`openAppPicker()`](#openapppicker)
 
 </docgen-index>
 
@@ -49,6 +51,17 @@ echo(options: { value: string; }) => Promise<{ value: string; }>
 --------------------
 
 
+### checkPermission()
+
+```typescript
+checkPermission() => Promise<{ granted: boolean; }>
+```
+
+**Returns:** <code>Promise&lt;{ granted: boolean; }&gt;</code>
+
+--------------------
+
+
 ### requestPermission()
 
 ```typescript
@@ -56,6 +69,15 @@ requestPermission() => Promise<{ granted: boolean; }>
 ```
 
 **Returns:** <code>Promise&lt;{ granted: boolean; }&gt;</code>
+
+--------------------
+
+
+### openAppPicker()
+
+```typescript
+openAppPicker() => Promise<void>
+```
 
 --------------------
 
