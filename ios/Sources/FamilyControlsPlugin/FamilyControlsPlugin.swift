@@ -12,6 +12,7 @@ public class FamilyControlsPlugin: CAPPlugin, CAPBridgedPlugin {
     public let jsName = "FamilyControls"
     public let pluginMethods: [CAPPluginMethod] = [
         CAPPluginMethod(name: "echo", returnType: CAPPluginReturnPromise)
+        CAPPluginMethod(name: "requestPermission", returnType: CAPPluginReturnPromise)
     ]
     private let implementation = FamilyControls()
 

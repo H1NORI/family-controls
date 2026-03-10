@@ -1,7 +1,7 @@
 {
   "name": "family-controls",
-  "version": "0.0.2",
-  "description": "Implements IOS Family COntrols API",
+  "version": "0.0.3",
+  "description": "Implements IOS Family Controls API",
   "main": "dist/plugin.cjs.js",
   "module": "dist/esm/index.js",
   "types": "dist/esm/index.d.ts",
