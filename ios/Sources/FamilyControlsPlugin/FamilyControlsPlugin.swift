@@ -1,5 +1,6 @@
 import Foundation
 import Capacitor
+import FamilyControls
 
 /**
  * Please read the Capacitor iOS Plugin Development Guide

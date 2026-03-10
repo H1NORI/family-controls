@@ -7,4 +7,9 @@ export class FamilyControlsWeb extends WebPlugin implements FamilyControlsPlugin
     console.log('ECHO', options);
     return options;
   }
+
+  async requestPermission(): Promise<{ granted: boolean }> {
+    console.warn('FamilyControls plugin is not available on web.');
+    return { granted: false };
+  }
 }
