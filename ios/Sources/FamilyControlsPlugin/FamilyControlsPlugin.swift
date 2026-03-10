@@ -20,4 +20,24 @@ public class FamilyControlsPlugin: CAPPlugin, CAPBridgedPlugin {
             "value": implementation.echo(value)
         ])
     }
+
+    @objc func requestPermission(_ call: CAPPluginCall) {
+
+        if #available(iOS 16.0, *) {
+            Task {
+                do {
+                    try await AuthorizationCenter.shared.requestAuthorization(for: .individual)
+
+                    call.resolve([
+                        "granted": true
+                    ])
+                } catch {
+                    call.reject("Authorization failed")
+                }
+            }
+        } else {
+            call.reject("Screen Time API requires iOS 16 or newer")
+        }
+
+    }
 }
