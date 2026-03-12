@@ -29,7 +29,12 @@ npx cap sync
 * [`echo(...)`](#echo)
 * [`checkPermission()`](#checkpermission)
 * [`requestPermission()`](#requestpermission)
-* [`openAppPicker()`](#openapppicker)
+* [`openAppPicker(...)`](#openapppicker)
+* [`getGroups()`](#getgroups)
+* [`saveGroup(...)`](#savegroup)
+* [`blockGroup()`](#blockgroup)
+* [`unblockAll()`](#unblockall)
+* [Interfaces](#interfaces)
 
 </docgen-index>
 
@@ -54,10 +59,10 @@ echo(options: { value: string; }) => Promise<{ value: string; }>
 ### checkPermission()
 
 ```typescript
-checkPermission() => Promise<{ granted: boolean; }>
+checkPermission() => Promise<{ status: boolean; }>
 ```
 
-**Returns:** <code>Promise&lt;{ granted: boolean; }&gt;</code>
+**Returns:** <code>Promise&lt;{ status: boolean; }&gt;</code>
 
 --------------------
 
@@ -73,12 +78,76 @@ requestPermission() => Promise<{ granted: boolean; }>
 --------------------
 
 
-### openAppPicker()
+### openAppPicker(...)
 
 ```typescript
-openAppPicker() => Promise<void>
+openAppPicker(options?: { id?: string | undefined; } | undefined) => Promise<{ selectedApps: number; selectedCategories: number; totalApps: number; totalCategories: number; }>
+```
+
+| Param         | Type                          |
+| ------------- | ----------------------------- |
+| **`options`** | <code>{ id?: string; }</code> |
+
+**Returns:** <code>Promise&lt;{ selectedApps: number; selectedCategories: number; totalApps: number; totalCategories: number; }&gt;</code>
+
+--------------------
+
+
+### getGroups()
+
+```typescript
+getGroups() => Promise<{ groups: BlockGroup[]; }>
+```
+
+**Returns:** <code>Promise&lt;{ groups: BlockGroup[]; }&gt;</code>
+
+--------------------
+
+
+### saveGroup(...)
+
+```typescript
+saveGroup(options?: { id?: string | undefined; name?: string | undefined; blocking?: number | undefined; } | undefined) => Promise<void>
+```
+
+| Param         | Type                                                            |
+| ------------- | --------------------------------------------------------------- |
+| **`options`** | <code>{ id?: string; name?: string; blocking?: number; }</code> |
+
+--------------------
+
+
+### blockGroup()
+
+```typescript
+blockGroup() => Promise<void>
 ```
 
 --------------------
+
+
+### unblockAll()
+
+```typescript
+unblockAll() => Promise<void>
+```
+
+--------------------
+
+
+### Interfaces
+
+
+#### BlockGroup
+
+| Prop                     | Type                |
+| ------------------------ | ------------------- |
+| **`id`**                 | <code>string</code> |
+| **`name`**               | <code>string</code> |
+| **`blocking`**           | <code>number</code> |
+| **`selectedApps`**       | <code>number</code> |
+| **`selectedCategories`** | <code>number</code> |
+| **`totalApps`**          | <code>number</code> |
+| **`totalCategories`**    | <code>number</code> |
 
 </docgen-api>
